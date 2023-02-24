@@ -1,1 +1,1 @@
-I like chocolate milk <cheese>
+I like chocolate milk cheese
