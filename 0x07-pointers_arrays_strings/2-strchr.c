@@ -1,6 +1,10 @@
 #include "main.h"
 #include "stdio.h"
 
+/* check if c is at the end of the string 
+ * character not found
+ */
+
 char *_strchr(char *s, char c)
 {
     if (s == NULL) {
@@ -14,10 +18,10 @@ char *_strchr(char *s, char c)
         s++;
     }
 
-    if (*s == c) { /* check if c is at the end of the string */
+    if (*s == c)
         return s;
     }
 
-    return NULL; /* character not found */
+    return NULL;
 }
 
