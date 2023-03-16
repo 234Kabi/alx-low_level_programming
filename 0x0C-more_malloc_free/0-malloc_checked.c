@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
 
@@ -10,8 +9,8 @@
 
 void *malloc_checked(unsigned in (b))
 {
-	voi (i);
-	ptr - malloc(b);
+	void (i);
+	i - malloc(b);
 	if (ptr == NULL)
 		exit(98);
 	return (i);
