@@ -2,11 +2,13 @@
 #define DOG
 
 /**
- * struct dog - the dog class
- * @name: name of dog
- * @age: age of dog
- * @owner: owner of dog
- * return: 0
+ * struct dog - dog class
+ *
+ * @name: Name of the dog
+ *
+ * @age: Age of the dog
+ *
+ * @owner: Owner of the dog
  */
 
 struct dog
@@ -25,10 +27,4 @@ dog_t *new_dog(char *name, float age, char *owner);
 
 void free_dog(dog_t *d);
 
-	my_dog.name = "fluffy";
-	my_dog.age = 2;
-	my_dog.owner = "Kabi"
-	printf("my name is %s, and I am %.1f :) - Woof!\n", my_dog.name, my_dog.age);
-	return(0);
-}
 #endif
