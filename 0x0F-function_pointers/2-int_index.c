@@ -10,19 +10,19 @@
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-    /* check for NULL pointers and negative size */
-    if (array == NULL || cmp == NULL || size <= 0)
-        return (-1);
+int int_index(int *array, int size, int (*cmp)(int))
+{
+	int i = 0;
 
-    /* iterate through the array */
-    for (int i = 0; i < size; i++)
-    {
-        /* call the cmp function on the current element */
-        if (cmp(array[i]) != 0)
-            return (i);
-    }
-
-    /* no element matches */
-    return (-1);
+	if (size > 0)
+	{
+	if (array != NULL && cmp != NULL)
+	{
+	while (i < size)
+	{
+	if (cmp(array[i]))
+	return (i);
+	i++;
+	}}}
+	return (-1);
 }
-
