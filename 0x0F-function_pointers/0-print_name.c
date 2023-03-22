@@ -1,4 +1,4 @@
-#include "function_pointers.h"
+#include <stdio.h>
 
 /**
  * print_name_as_is - a function that prints a name as is.
