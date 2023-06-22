@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "main.c"
+#include "function_pointers.h"
+
 /**
  * int_index - searches for an integer
  * @array: pointer to the array to search
