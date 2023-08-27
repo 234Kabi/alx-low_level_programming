@@ -1,38 +1,33 @@
 #include <stdio.h>
-#include "main.h"
+#include <stdlib.h>
+#include <stdbool.h>
+#include <ctype.h>
 
-/**
- * _atoi - converts a string to an integer
- * @s: string to be converted
- * Return: the int converted from the string
- */
+bool is_positive_number(const char *str) {
+    while (*str) {
+        if (!isdigit(*str)) {
+            return false;
+        }
+        str++;
+    }
+    return true;
+}
 
 int main(int argc, char *argv[]) {
-    if (argc == 1) {
+    if (argc < 2) {
         printf("0\n");
         return 0;
     }
 
     int sum = 0;
-
+    
     for (int i = 1; i < argc; i++) {
-        char *arg = argv[i];
-
-        for (int j = 0; arg[j] != '\0'; j++) {
-            if (!isdigit(arg[j])) {
-                printf("Error\n");
-                return 1;
-            }
-        }
-
-        int num = atoi(arg);
-
-        if (num <= 0) {
+        if (!is_positive_number(argv[i])) {
             printf("Error\n");
             return 1;
         }
-
-        sum += num;
+        
+        sum += atoi(argv[i]);
     }
 
     printf("%d\n", sum);

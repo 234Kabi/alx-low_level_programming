@@ -4,6 +4,7 @@
  * _print - moves a string one place to the left and prints the string
  * @str: string to move
  * @l: size of string
+ *
  * Return: void
  */
 
@@ -32,6 +33,7 @@ void _print(char *str, int l)
  * @num_index: last non NULL index of num
  * @dest: destination of multiplication
  * @dest_index: highest index to start addition
+ *
  * Return: pointer to dest, or NULL on failure
  */
 char *mul(char n, char *num, int num_index, char *dest, int dest_index)
@@ -63,6 +65,7 @@ char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 /**
  * check_for_digits - checks the arguments to ensure they are digits
  * @av: pointer to arguments
+ *
  * Return: 0 if digits, 1 if not
  */
 int check_for_digits(char **av)
@@ -84,11 +87,13 @@ int check_for_digits(char **av)
  * init - initializes a string
  * @str: sting to initialize
  * @l: length of strinf
+ *
  * Return: void
  */
 void init(char *str, int l)
 {
 	int i;
+
 	for (i = 0; i < l; i++)
 		str[i] = '0';
 	str[i] = '\0';
@@ -98,6 +103,7 @@ void init(char *str, int l)
  * main - multiply two numbers
  * @argc: number of arguments
  * @argv: argument vector
+ *
  * Return: zero, or exit status of 98 if failure
  */
 

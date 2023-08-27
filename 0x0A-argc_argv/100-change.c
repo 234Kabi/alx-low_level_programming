@@ -1,31 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int calculateMinCoins(int cents) {
-    if (cents < 0) {
-        return 0;
-    }
-
-    int coinValues[] = {25, 10, 5, 2, 1};
-    int numCoins = sizeof(coinValues) / sizeof(coinValues[0]);
-    int minCoins = 0;
-
-    for (int i = 0; i < numCoins; i++) {
-        while (cents >= coinValues[i]) {
-            cents -= coinValues[i];
-            minCoins++;
-        }
-    }
-    return minCoins;
-}
-
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         printf("Error\n");
         return 1;
     }
-    int cents = atoi(argv[1]);
-    int minCoins = calculateMinCoins(cents);
-    printf("%d\n", minCoins);
+
+    int cents = atoi(argv[1]); // Convert argument to integer
+
+    if (cents < 0) {
+        printf("0\n");
+        return 0;
+    }
+
+    int coins = 0;
+
+    coins += cents / 25; // Count the number of 25 cent coins
+    cents %= 25;
+
+    coins += cents / 10; // Count the number of 10 cent coins
+    cents %= 10;
+
+    coins += cents / 5; // Count the number of 5 cent coins
+    cents %= 5;
+
+    coins += cents / 2; // Count the number of 2 cent coins
+    cents %= 2;
+
+    coins += cents; // Count the number of 1 cent coins
+
+    printf("%d\n", coins);
+
     return 0;
 }

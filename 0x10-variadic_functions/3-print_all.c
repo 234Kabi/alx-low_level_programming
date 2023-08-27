@@ -1,43 +1,67 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-void print_all(const char * const format, ...) {
-    va_list args;
-    unsigned int i = 0;
-    char c_arg;
-    int i_arg;
-    float f_arg;
-    char *s_arg;
+void print_all(const char * const format, ...)
+{
+	va_list ap;
+	char *s;
+	int i = 0, n = 0;
+	float f = 0.0;
 
-    va_start(args, format);
+	va_start(ap, format);
 
-    while (format && format[i]) {
-        if (i > 0)
-            printf(", ");
+	while (format && format[i])
+	{
+		switch (format[i])
+		{
+			case 'c':
+				// print a char
+				printf("%c", va_arg(ap, int));
+				break;
 
-        switch (format[i]) {
-            case 'c':
-                c_arg = va_arg(args, int);
-                printf("%c", c_arg);
-                break;
-            case 'i':
-                i_arg = va_arg(args, int);
-                printf("%d", i_arg);
-                break;
-            case 'f':
-                f_arg = va_arg(args, double);
-                printf("%f", f_arg);
-                break;
-            case 's':
-                s_arg = va_arg(args, char *);
-                if (s_arg == NULL)
-                    printf("(nil)");
-                else
-                    printf("%s", s_arg);
-                break;
-        }
-        i++;
-    }
-    va_end(args);
-    printf("\n");
+			case 'i':
+				// print an integer
+				printf("%d", va_arg(ap, int));
+				break;
+
+			case 'f':
+				// print a float
+				printf("%f", va_arg(ap, double));
+				break;
+
+			case 's':
+				// print a string
+				s = va_arg(ap, char*);
+				if (s == NULL)
+				{
+					printf("(nil)");
+				}
+				else
+				{
+					printf("%s", s);
+				}
+				break;
+
+			default:
+				// ignore other characters
+				break;
+		}
+
+		// print a separator if there are more arguments to come
+		n = 0;
+		while (format[i + n + 1] && (format[i + n + 1] == 'c' || format[i + n + 1] == 'i' || format[i + n + 1] == 'f' || format[i + n + 1] == 's'))
+		{
+			n++;
+		}
+		if (n > 0)
+		{
+			printf(", ");
+		}
+
+		// move to the next argument
+		i++;
+	}
+
+	va_end(ap);
+	printf("\n");
 }

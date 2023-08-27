@@ -1,13 +1,5 @@
 #include <stdio.h>
-#include "main.h"
-/**
- * _atoi - converts a string to an integer
- * @s: string to be converted
- * Return: the int converted from the string
- */
-int multiply(int num1, int num2) {
-    return num1 * num2;
-}
+#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
@@ -15,10 +7,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    int num1 = atoi(argv[1]);
-    int num2 = atoi(argv[2]);
+    int num1 = atoi(argv[1]); // Convert first argument to integer
+    int num2 = atoi(argv[2]); // Convert second argument to integer
 
-    int result = multiply(num1, num2);
+    int result = num1 * num2;
 
     printf("%d\n", result);
 
